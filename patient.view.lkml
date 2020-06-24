@@ -13,7 +13,7 @@ view: patient {
   }
 
 
-  #dimension: CCF { type: string label: "CCF" sql: ${pat_CCF.pat_CCF} ;; }
+  dimension: CCF { type: string label: "CCF" sql: ${pat_CCF.pat_CCF} ;; }
   dimension: EPI { type: string label: "EPI" sql: ${pat_EPI.pat_EPI} ;; }
   #dimension: MEMRN { type: string label: "MEMRN" sql: ${pat_MEMRN.pat_MEMRN} ;; }
   dimension: FLA_CCF { type: string label: "FLA-CCF" sql: ${pat_FLA_CCF.pat_FLA_CCF} ;; }
