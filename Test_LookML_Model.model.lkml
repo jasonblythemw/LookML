@@ -1,6 +1,6 @@
 connection: "cch-synthea"
 
-# include: "*.view"
+include: "*.view"
 
 # include all views in the views/ folder in this project
 # include: "/**/view.lkml"                   # include all views in this project
