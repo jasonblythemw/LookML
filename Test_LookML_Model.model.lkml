@@ -72,7 +72,7 @@ explore: encounter {
   }
 
   join: pat_CCF{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${encounter_patient.patient_id} = ${pat_CCF.pat_id};; }
-  #join: pat_EPI{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${encounter_patient.patient_id} = ${pat_EPI.pat_id};; }
+  join: pat_EPI{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${encounter_patient.patient_id} = ${pat_EPI.pat_id};; }
   join: pat_MEMRN{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${encounter_patient.patient_id} =${pat_MEMRN.pat_id};; }
   join: pat_FLA_CCF{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_FLA_CCF.pat_id} = ${encounter_patient.patient_id};; }
   join: pat_SB{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_SB.pat_id} = ${encounter_patient.patient_id};; }

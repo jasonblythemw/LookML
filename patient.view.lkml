@@ -14,7 +14,7 @@ view: patient {
 
 
   #dimension: CCF { type: string label: "CCF" sql: ${pat_CCF.pat_CCF} ;; }
-  #dimension: EPI { type: string label: "EPI" sql: ${pat_EPI.pat_EPI} ;; }
+  dimension: EPI { type: string label: "EPI" sql: ${pat_EPI.pat_EPI} ;; }
   dimension: MEMRN { type: string label: "MEMRN" sql: ${pat_MEMRN.pat_MEMRN} ;; }
   dimension: FLA_CCF { type: string label: "FLA-CCF" sql: ${pat_FLA_CCF.pat_FLA_CCF} ;; }
   dimension: SB { type: string label: "SB" sql: ${pat_SB.pat_SB} ;; }
@@ -95,7 +95,7 @@ view: pat_CCF {
   }
 }
 
-#view: pat_EPI { derived_table: { sql: SELECT distinct id as pat_id, i.value as EPI  FROM `cch-sandbox.fhir_dataset.Patient` pat, unnest(identifier) i, unnest(i.type.coding) c where c.code = 'EPI';; } dimension: pat_id {primary_key: yes  type: string  sql: ${TABLE}.pat_id;; } dimension: pat_EPI { type: string sql: ${TABLE}.EPI ;;}}
+view: pat_EPI { derived_table: { sql: SELECT distinct id as pat_id, i.value as EPI  FROM `cch-sandbox.fhir_dataset.Patient` pat, unnest(identifier) i, unnest(i.type.coding) c where c.code = 'EPI';; } dimension: pat_id {primary_key: yes  type: string  sql: ${TABLE}.pat_id;; } dimension: pat_EPI { type: string sql: ${TABLE}.EPI ;;}}
 view: pat_MEMRN { derived_table: { sql: SELECT distinct id as pat_id, i.value as MEMRN  FROM `cch-sandbox.fhir_dataset.Patient` pat, unnest(identifier) i, unnest(i.type.coding) c where c.code = 'MEMRN';; } dimension: pat_id {primary_key: yes  type: string  sql: ${TABLE}.pat_id;; } dimension: pat_MEMRN { type: string sql: ${TABLE}.MEMRN ;;}}
 view: pat_FLA_CCF { derived_table: { sql: SELECT distinct id as pat_id, i.value as FLA_CCF  FROM `cch-sandbox.fhir_dataset.Patient` pat, unnest(identifier) i, unnest(i.type.coding) c where c.code = 'FLA-CCF';; } dimension: pat_id {primary_key: yes  type: string  sql: ${TABLE}.pat_id;; } dimension: pat_FLA_CCF { type: string sql: ${TABLE}.FLA_CCF ;;}}
 view: pat_SB { derived_table: { sql: SELECT distinct id as pat_id, i.value as SB  FROM `cch-sandbox.fhir_dataset.Patient` pat, unnest(identifier) i, unnest(i.type.coding) c where c.code = 'SB';; } dimension: pat_id {primary_key: yes  type: string  sql: ${TABLE}.pat_id;; } dimension: pat_SB { type: string sql: ${TABLE}.SB ;;}}
