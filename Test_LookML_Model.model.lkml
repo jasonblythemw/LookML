@@ -15,33 +15,6 @@ explore: condition {
 
 }
 
-explore: patient_identifier {
-  hidden:  yes
-
-  join: pat_CCF{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_CCF.pat_id} = ${patient_identifier.pat_id};; }
-  #join: pat_EPI{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_EPI.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_MEMRN{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_MEMRN.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_FLA_CCF{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_FLA_CCF.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_SB{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_SB.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_DL{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_DL.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_FVMRN{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_FVMRN.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_IRISREG{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_IRISREG.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_CCHS_ER_HCH{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_CCHS_ER_HCH.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_CCHS_WR_MMH{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_CCHS_WR_MMH.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_AVMRN{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_AVMRN.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_CCHS_ER_EUH{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_CCHS_ER_EUH.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_AGMRN{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_AGMRN.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_AGLDMRN{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_AGLDMRN.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_LUMRN{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_LUMRN.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_CPC_AGAMBMR{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_CPC_AGAMBMR.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_CPC_AGHS{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_CPC_AGHS.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_CCHS_ER_SPH{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_CCHS_ER_SPH.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_MYCHART{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_MYCHART.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_CPC_RFPI{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_CPC_RFPI.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_SELMED_EPI{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_SELMED_EPI.pat_id} = ${patient_identifier.pat_id};; }
-  join: pat_SELMED_FH{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_SELMED_FH.pat_id} = ${patient_identifier.pat_id};; }
-
-}
 
 explore: encounter {
 
@@ -68,31 +41,31 @@ explore: encounter {
   }
 
   join: patient {
-    relationship: one_to_one type: left_outer sql_on:  ${encounter_patient.patient_id} = ${patient.patient_id};;
+    relationship: one_to_one type: left_outer sql_on:  ${encounter_patient.patient_id} = ${patient.pat_id};;
   }
 
-  join: pat_CCF{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${encounter_patient.patient_id} = ${pat_CCF.pat_id};; }
-  join: pat_EPI{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${encounter_patient.patient_id} = ${pat_EPI.pat_id};; }
-  join: pat_MEMRN{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${encounter_patient.patient_id} =${pat_MEMRN.pat_id};; }
-  join: pat_FLA_CCF{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_FLA_CCF.pat_id} = ${encounter_patient.patient_id};; }
-  join: pat_SB{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_SB.pat_id} = ${encounter_patient.patient_id};; }
-  join: pat_DL{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_DL.pat_id} = ${encounter_patient.patient_id};; }
-  join: pat_FVMRN{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_FVMRN.pat_id} = ${encounter_patient.patient_id};; }
-  join: pat_IRISREG{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_IRISREG.pat_id} = ${encounter_patient.patient_id};; }
-  join: pat_CCHS_ER_HCH{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_CCHS_ER_HCH.pat_id} = ${encounter_patient.patient_id};; }
-  join: pat_CCHS_WR_MMH{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_CCHS_WR_MMH.pat_id} = ${encounter_patient.patient_id};; }
-  join: pat_AVMRN{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_AVMRN.pat_id} = ${encounter_patient.patient_id};; }
-  join: pat_CCHS_ER_EUH{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_CCHS_ER_EUH.pat_id} = ${encounter_patient.patient_id};; }
-  join: pat_AGMRN{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_AGMRN.pat_id} = ${encounter_patient.patient_id};; }
-  join: pat_AGLDMRN{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_AGLDMRN.pat_id} = ${encounter_patient.patient_id};; }
-  join: pat_LUMRN{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_LUMRN.pat_id} = ${encounter_patient.patient_id};; }
-  join: pat_CPC_AGAMBMR{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_CPC_AGAMBMR.pat_id} = ${encounter_patient.patient_id};; }
-  join: pat_CPC_AGHS{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_CPC_AGHS.pat_id} = ${encounter_patient.patient_id};; }
-  join: pat_CCHS_ER_SPH{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_CCHS_ER_SPH.pat_id} = ${encounter_patient.patient_id};; }
-  join: pat_MYCHART{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_MYCHART.pat_id} = ${encounter_patient.patient_id};; }
-  join: pat_CPC_RFPI{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_CPC_RFPI.pat_id} = ${encounter_patient.patient_id};; }
-  join: pat_SELMED_EPI{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_SELMED_EPI.pat_id} = ${encounter_patient.patient_id};; }
-  join: pat_SELMED_FH{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${pat_SELMED_FH.pat_id} = ${encounter_patient.patient_id};; }
+  join: CCF{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${encounter_patient.patient_id} = ${CCF.pat_id};; }
+  join: EPI{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${encounter_patient.patient_id} = ${EPI.pat_id};; }
+  join: MEMRN{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${encounter_patient.patient_id} =${MEMRN.pat_id};; }
+  join: FLA_CCF{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${FLA_CCF.pat_id} = ${encounter_patient.patient_id};; }
+  join: SB{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${SB.pat_id} = ${encounter_patient.patient_id};; }
+  join: DL{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${DL.pat_id} = ${encounter_patient.patient_id};; }
+  join: FVMRN{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${FVMRN.pat_id} = ${encounter_patient.patient_id};; }
+  join: IRISREG{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${IRISREG.pat_id} = ${encounter_patient.patient_id};; }
+  join: CCHS_ER_HCH{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${CCHS_ER_HCH.pat_id} = ${encounter_patient.patient_id};; }
+  join: CCHS_WR_MMH{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${CCHS_WR_MMH.pat_id} = ${encounter_patient.patient_id};; }
+  join: AVMRN{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${AVMRN.pat_id} = ${encounter_patient.patient_id};; }
+  join: CCHS_ER_EUH{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${CCHS_ER_EUH.pat_id} = ${encounter_patient.patient_id};; }
+  join: AGMRN{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${AGMRN.pat_id} = ${encounter_patient.patient_id};; }
+  join: AGLDMRN{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${AGLDMRN.pat_id} = ${encounter_patient.patient_id};; }
+  join: LUMRN{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${LUMRN.pat_id} = ${encounter_patient.patient_id};; }
+  join: CPC_AGAMBMR{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${CPC_AGAMBMR.pat_id} = ${encounter_patient.patient_id};; }
+  join: CPC_AGHS{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${CPC_AGHS.pat_id} = ${encounter_patient.patient_id};; }
+  join: CCHS_ER_SPH{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${CCHS_ER_SPH.pat_id} = ${encounter_patient.patient_id};; }
+  join: MYCHART{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${MYCHART.pat_id} = ${encounter_patient.patient_id};; }
+  join: CPC_RFPI{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${CPC_RFPI.pat_id} = ${encounter_patient.patient_id};; }
+  join: SELMED_EPI{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${SELMED_EPI.pat_id} = ${encounter_patient.patient_id};; }
+  join: SELMED_FH{ relationship: one_to_one  fields: []  type: left_outer  sql_on:  ${SELMED_FH.pat_id} = ${encounter_patient.patient_id};; }
 
 
   join: encounter_patient {
